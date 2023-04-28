@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.searchbox {
+    display: flex;
+    align-items: flex-start;
+}
+
+.location {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2%;
+    border: solid 1px black;
+    border-left: 0;
+    padding: 1rem;
+    width: 50%;
+    
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: auto;
+}
+
+
