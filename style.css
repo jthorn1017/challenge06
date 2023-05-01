@@ -6,6 +6,8 @@
 .searchbox {
     display: flex;
     align-items: flex-start;
+    text-align: left;
+    width:18%;
 }
 
 .location {
@@ -13,14 +15,14 @@
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
     margin-top: 2%;
     border: solid 1px black;
-    border-left: 0;
+    text-align: left;
     padding: 1rem;
-    width: 50%;
-    
+    width: 70%;
+    float: right;
 }
 
 .title {
@@ -33,4 +35,9 @@
     margin: auto;
 }
 
+.forecast {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
