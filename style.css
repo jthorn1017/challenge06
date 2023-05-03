@@ -35,9 +35,27 @@
     margin: auto;
 }
 
+.forecast-title {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-top: 2%; 
+    text-align: left;
+    padding: 1rem; 
+    width: 43%;
+    float: left;
+}
+
 .forecast {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    flex-direction: column;
+    margin-top: 2%; 
+    text-align: left;
+    padding: 1rem; 
+    width: 43%;
+    float: left;
 }
 
