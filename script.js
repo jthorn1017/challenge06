@@ -3,6 +3,26 @@ let city = document.querySelector(".city");
 let temp = document.querySelector(".temp");
 let wind = document.querySelector(".wind");
 let humidity = document.querySelector(".humidity");
+let day1 = document.querySelector("#day1");
+let day2 = document.querySelector("#day2");
+let day3 = document.querySelector("#day3");
+let day4 = document.querySelector("#day4");
+let day5 = document.querySelector("#day5");
+let temp1 = document.querySelector("#temp1");
+let temp2 = document.querySelector("#temp2");
+let temp3 = document.querySelector("#temp3");
+let temp4 = document.querySelector("#temp4");
+let temp5 = document.querySelector("#temp5");
+let wind1 = document.querySelector("#wind1");
+let wind2 = document.querySelector("#wind2");
+let wind3 = document.querySelector("#wind3");
+let wind4 = document.querySelector("#wind4");
+let wind5 = document.querySelector("#wind5");
+let humidity1 = document.querySelector("#humidity1");
+let humidity2 = document.querySelector("#humidity2");
+let humidity3 = document.querySelector("#humidity3");
+let humidity4 = document.querySelector("#humidity4");
+let humidity5 = document.querySelector("#humidity5");
 let btn = document.querySelector(".btn");
 let input = document.querySelector("input");
 let apiKey = "9b661709fa6c303edd0e9239d489303f";
@@ -46,7 +66,7 @@ function getWeather(latitude, longitude) {
 
     let date = results.dt;
     let newDate = new Date(date * 1000);
-    console.log(newDate);
+    // console.log(newDate);
     String(newDate);
     day.textContent = newDate; 
 
@@ -73,8 +93,32 @@ function fiveDay(latitude, longitude) {
     .then(function (results) {
       console.log("This is five day forecast :", results);
 
-    console.log(results.list[3].main.temp)
-    // temp.textContent = results.list[3].main.temp + " F";
+    // console.log(results.list[3].main.temp)
+    temp1.textContent = results.list[3].main.temp + " F";
+    temp2.textContent = results.list[11].main.temp + " F";
+    temp3.textContent = results.list[19].main.temp + " F";
+    temp4.textContent = results.list[27].main.temp + " F";
+    temp5.textContent = results.list[35].main.temp + " F";
+
+    // console.log(results.list[3].wind.speed)
+    wind1.textContent = results.list[3].wind.speed + " MPH";
+    wind2.textContent = results.list[11].wind.speed + " MPH";
+    wind3.textContent = results.list[19].wind.speed + " MPH";
+    wind4.textContent = results.list[27].wind.speed + " MPH";
+    wind5.textContent = results.list[35].wind.speed + " MPH";
+
+    // console.log(results.list[3].main.humidity)
+    humidity1.textContent = results.list[3].main.humidity + " %";
+    humidity2.textContent = results.list[11].main.humidity + " %";
+    humidity3.textContent = results.list[19].main.humidity + " %";
+    humidity4.textContent = results.list[27].main.humidity + " %";
+    humidity5.textContent = results.list[35].main.humidity + " %";
+
+    let date1 = results.list[3].dt;
+    console.log(date1);
+    let newDate1 = new Date(date1 * 1000);
+    console.log(newDate1);
+    date1.textContent = newDate1;
 
     });
 
@@ -103,4 +147,4 @@ function getCoords(cityName) {
     });
 }
 
-getCoords("Atlanta");
+getCoords("Detroit");
