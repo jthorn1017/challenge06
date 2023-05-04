@@ -115,11 +115,34 @@ function fiveDay(latitude, longitude) {
     humidity5.textContent = results.list[35].main.humidity + " %";
 
     let date1 = results.list[3].dt;
-    console.log(date1);
+    // console.log(date1);
     let newDate1 = new Date(date1 * 1000);
-    console.log(newDate1);
-    date1.textContent = newDate1;
+    // console.log(newDate1);
+    day1.textContent = newDate1;
 
+    let date2 = results.list[11].dt;
+    // console.log(date2);
+    let newDate2 = new Date(date2 * 1000);
+    // console.log(newDate2);
+    day2.textContent = newDate2;
+
+    let date3 = results.list[19].dt;
+    // console.log(date3);
+    let newDate3 = new Date(date3 * 1000);
+    // console.log(newDate3);
+    day3.textContent = newDate3;
+
+    let date4 = results.list[27].dt;
+    // console.log(date4);
+    let newDate4 = new Date(date4 * 1000);
+    // console.log(newDate4);
+    day4.textContent = newDate4;
+
+    let date5 = results.list[35].dt;
+    // console.log(date5);
+    let newDate5 = new Date(date5 * 1000);
+    // console.log(newDate5);
+    day5.textContent = newDate5;
     });
 
 
