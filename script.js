@@ -29,8 +29,7 @@ let history = document.querySelector("#history");
 let apiKey = "9b661709fa6c303edd0e9239d489303f";
 let baseUrl = "https://api.openweathermap.org/data/2.5/";
 
-const fromStorage = localStorage.getItem("cityHistory");
-let cityHistory = [];
+const fromStorage = JSON.parse(localStorage.getItem("cityHistory")) || [];
 // When you search add that to the history array
 // When you refresh the page, the history array should be saved to local storage
 // When you go back `history` should be populated with the history array from local storage
@@ -40,33 +39,34 @@ btn.addEventListener("click", function () {
 //   console.log("hello");
 //   console.log(input.value);
   getCoords(input.value);
-  localStorage.setItem("cityHistory", input.value);
-  cityHistory.push
+  localStorage.setItem("fromStorage", input.value);
+  fromStorage.push
 });
 
 if (!fromStorage) {
-    cityHistory = ["Seattle", "New York", "Chicago", "Denver", "Atlanta"];
+    fromStorage = ["Seattle", "New York", "Chicago", "Denver", "Atlanta"];
 } else {
-    cityHistory = JSON.parse(fromStorage);
+    fromStorage = JSON.parse(fromStorage);
 }
 
 function addToCityHistory(input) {
-    cityHistory.push(input);
-    localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
-    console.log(cityHistory);
+    fromStorage.push(input);
+    localStorage.setItem("fromStorage", JSON.stringify(fromStorage));
+    console.log(fromStorage);
 }
 
 function buttonSearch(e) {
     const city = e.target.dataset.name;
+    getCoords(city);
 }
 
 const main = document.querySelector("#history");
 
-for(i=0; i< cityHistory.length; i++) {
+for(i=0; i< fromStorage.length; i++) {
     const entry = document.createElement("button");
-    entry.textContent = cityHistory[i];
+    entry.textContent = fromStorage[i];
     entry.className = "button";
-    entry.dataset.name = cityHistory[i];
+    entry.dataset.name = fromStorage[i];
     entry.onclick = buttonSearch;
     main.appendChild(entry);
 }
