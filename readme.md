@@ -1,0 +1,2 @@
+This is my weather app aplication. You can search any major city in the search box and the page will return with the weather for today and the net 5day forcast. Also when you search a city 
+the previous cities searched will be loaded on to the page and available to search again.
