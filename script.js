@@ -30,6 +30,7 @@ let apiKey = "9b661709fa6c303edd0e9239d489303f";
 let baseUrl = "https://api.openweathermap.org/data/2.5/";
 
 const fromStorage = JSON.parse(localStorage.getItem("cityHistory")) || [];
+// let cityHistory = [];
 // When you search add that to the history array
 // When you refresh the page, the history array should be saved to local storage
 // When you go back `history` should be populated with the history array from local storage
@@ -39,24 +40,18 @@ btn.addEventListener("click", function () {
 //   console.log("hello");
 //   console.log(input.value);
   getCoords(input.value);
-  localStorage.setItem("fromStorage", input.value);
-  fromStorage.push
+  addToCityHistory(input.value);
 });
 
-if (!fromStorage) {
-    fromStorage = ["Seattle", "New York", "Chicago", "Denver", "Atlanta"];
-} else {
-    fromStorage = JSON.parse(fromStorage);
-}
-
 function addToCityHistory(input) {
-    fromStorage.push(input);
-    localStorage.setItem("fromStorage", JSON.stringify(fromStorage));
+   fromStorage.push(input);
+    localStorage.setItem("cityHistory", JSON.stringify(fromStorage));
     console.log(fromStorage);
 }
 
 function buttonSearch(e) {
     const city = e.target.dataset.name;
+    console.log(city);
     getCoords(city);
 }
 
@@ -67,12 +62,10 @@ for(i=0; i< fromStorage.length; i++) {
     entry.textContent = fromStorage[i];
     entry.className = "button";
     entry.dataset.name = fromStorage[i];
+    //add event listener to search for city
     entry.onclick = buttonSearch;
     main.appendChild(entry);
 }
-
-// let cityStorage = localStorage.getItem("city");
-// console.log(cityStorage);
 
 function getWeather(latitude, longitude) {
   let getDay =
