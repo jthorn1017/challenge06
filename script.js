@@ -25,19 +25,54 @@ let humidity4 = document.querySelector("#humidity4");
 let humidity5 = document.querySelector("#humidity5");
 let btn = document.querySelector(".btn");
 let input = document.querySelector("input");
+let history = document.querySelector("#history");
 let apiKey = "9b661709fa6c303edd0e9239d489303f";
 let baseUrl = "https://api.openweathermap.org/data/2.5/";
+
+const fromStorage = localStorage.getItem("cityHistory");
+let cityHistory = [];
+// When you search add that to the history array
+// When you refresh the page, the history array should be saved to local storage
+// When you go back `history` should be populated with the history array from local storage
+// When you click on a city in the history, it should populate the current weather and 5 day forecast for that city
 
 btn.addEventListener("click", function () {
 //   console.log("hello");
 //   console.log(input.value);
   getCoords(input.value);
-  localStorage.setItem("city", input.value);
+  localStorage.setItem("cityHistory", input.value);
+  cityHistory.push
 });
 
-let cityStorage = localStorage.getItem("city");
-console.log(cityStorage);
+if (!fromStorage) {
+    cityHistory = ["Seattle", "New York", "Chicago", "Denver", "Atlanta"];
+} else {
+    cityHistory = JSON.parse(fromStorage);
+}
 
+function addToCityHistory(input) {
+    cityHistory.push(input);
+    localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
+    console.log(cityHistory);
+}
+
+function buttonSearch(e) {
+    const city = e.target.dataset.name;
+}
+
+const main = document.querySelector("#history");
+
+for(i=0; i< cityHistory.length; i++) {
+    const entry = document.createElement("button");
+    entry.textContent = cityHistory[i];
+    entry.className = "button";
+    entry.dataset.name = cityHistory[i];
+    entry.onclick = buttonSearch;
+    main.appendChild(entry);
+}
+
+// let cityStorage = localStorage.getItem("city");
+// console.log(cityStorage);
 
 function getWeather(latitude, longitude) {
   let getDay =
