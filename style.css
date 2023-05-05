@@ -6,7 +6,11 @@
 .searchbox {
     display: flex;
     align-items: right;
-    width: 12%;
+    width: 98.5%;
+}
+
+.btn {
+    width: 100%;
 }
 
 .city-list {
@@ -14,8 +18,8 @@
 }
 
 .container {
-    display: flex;
-    justify-content: flex-end;
+    position:absolute;
+    right: 10%;
 }
 
 #history {
