@@ -29,10 +29,15 @@ let apiKey = "9b661709fa6c303edd0e9239d489303f";
 let baseUrl = "https://api.openweathermap.org/data/2.5/";
 
 btn.addEventListener("click", function () {
-  console.log("hello");
-  console.log(input.value);
+//   console.log("hello");
+//   console.log(input.value);
   getCoords(input.value);
+  localStorage.setItem("city", input.value);
 });
+
+let cityStorage = localStorage.getItem("city");
+console.log(cityStorage);
+
 
 function getWeather(latitude, longitude) {
   let getDay =
@@ -69,7 +74,6 @@ function getWeather(latitude, longitude) {
     // console.log(newDate);
     String(newDate);
     day.textContent = newDate; 
-
     });
 }
 
@@ -144,8 +148,6 @@ function fiveDay(latitude, longitude) {
     // console.log(newDate5);
     day5.textContent = newDate5;
     });
-
-
 }
 
 function getCoords(cityName) {
@@ -169,5 +171,7 @@ function getCoords(cityName) {
       fiveDay(results[0].lat, results[0].lon);
     });
 }
+
+
 
 getCoords("Detroit");
